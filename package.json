@@ -1,0 +1,42 @@
+{
+  "name": "ProyectoFinalBE3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "moongose": "^1.0.0",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./servidor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranST724/ProyectoFinalBE3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FranST724/ProyectoFinalBE3/issues"
+  },
+  "homepage": "https://github.com/FranST724/ProyectoFinalBE3#readme"
+}
