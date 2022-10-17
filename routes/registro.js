@@ -1,25 +1,18 @@
 import Router from 'express';
-
 import passport from 'passport';
-import '../passportConfig.js';
 const mainScript = 'public/index.js';
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/registro', async (req, res) => {
 	res.render('registro.ejs', { mainScript });
 });
 
-// router.post('/', (req, res) => {
-
-// 	res.redirect('/productos');
-// });
-
+// autenticar con passport y enviar respuestas al cliente
 router.post(
-	'/',
-	// autenticar con passport y enviar respuestas al client
+	'/registro',
 	passport.authenticate('registro', {
-		failureRedirect: '/api/registro'
+		failureRedirect: '/errorRegistro'
 	}),
 	(req, res) => {
 		console.log('DATA: ', req.body);

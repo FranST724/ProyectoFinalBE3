@@ -7,10 +7,10 @@ router.get('/', async (req, res) => {
 	res.render('login.ejs', { mainScript });
 });
 
-router.post('/', (req, res) => {
+router.post('/login', (req, res) => {
 	console.log(req.session);
 	req.session.nombre = req.body.nombre;
-	res.redirect('/');
+	res.redirect('/productos');
 });
 
 export default router;

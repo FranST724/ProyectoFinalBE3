@@ -4,8 +4,11 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import routesProductos from './routes/routesProductos.js';
 import routesLogin from './routes/login.js';
-import routesApi from './routes/api.js';
+import routesApi from './routes/apiRoutes.js';
 import routesRegistro from './routes/registro.js';
+import './database/database.js';
+import './passport/local.js';
+import passport from 'passport';
 
 import cluster from 'cluster';
 import os from 'os';
@@ -28,10 +31,13 @@ if (cluster.isPrimary && MODO === 'cluster') {
 	});
 } else {
 	const app = express();
+
 	//Midddlewares
 	app.use(express.urlencoded({ extended: true }));
 	app.use(express.json());
 	app.use(express.static('../Public'));
+
+	//Session
 	app.use(
 		session({
 			secret: 'secret',
@@ -44,13 +50,15 @@ if (cluster.isPrimary && MODO === 'cluster') {
 		})
 	);
 
+	/** passport  */
+	app.use(passport.initialize()); // Inicializa passport
+	app.use(passport.session()); // Enlaza passport con la sesion
+
+	//Rutas
 	app.use('/api', routesApi);
 	app.use('/productos', routesProductos);
 	app.use('/registro', routesRegistro);
-	app.use('/login', routesLogin);
-	app.get('*', (req, res, next) => {
-		res.send('Error');
-	});
+	app.use('/', routesLogin);
 
 	const server = app.listen(PORT, () =>
 		console.log(

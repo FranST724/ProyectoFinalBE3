@@ -3,7 +3,6 @@ import 'dotenv/config';
 const MONGO_USER = process.env.MONGO_USER;
 const MONGO_PASS = process.env.MONGO_PASS;
 const DB_NAME = process.env.DB_NAME;
-console.log(DB_NAME, 'hola');
 
 const options = {
 	mysql: {
