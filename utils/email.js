@@ -30,7 +30,7 @@ export async function signUpEmail(newUser) {
 
 export async function checkOutEMail(newOrder) {
 	const mailOptions = {
-		from: 'Administradora DOLCE <Dolce@ethereal.email>',
+		from: 'fran.tasinazzo@gmail.com',
 		to: TEST_EMAIL,
 		subject: `nuevo pedido de ${newOrder.userName}, ${newOrder.userEmail}`,
 		html: `<h1>Pedido</h1>
