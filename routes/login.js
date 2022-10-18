@@ -13,4 +13,16 @@ router.post('/login', (req, res) => {
 	res.redirect('/productos');
 });
 
+router.get('/datos', (req, res) => {
+	if (req.session.nombre) {
+		res.render('bienvenida.ejs', { nombre: req.session.nombre });
+	}
+});
+
+router.get('/logout', (req, res) => {
+	req.session.destroy((err) => {
+		res.redirect('/');
+	});
+});
+
 export default router;
